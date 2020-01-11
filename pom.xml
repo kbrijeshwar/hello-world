@@ -65,11 +65,16 @@
             <plugin>
               <artifactId>maven-pmd-plugin</artifactId>
             </plugin>
-
+                   
             <plugin>
               <artifactId>maven-surefire-report-plugin</artifactId>
-            </plugin>
-
+                  <configuration>
+                    <forkMode>once</forkMode>
+                    <argLine>-Xms256m -Xmx512m -noverify</argLine>
+                    <excludes>
+                        <exclude>InjectedTest.java</exclude>
+                    </excludes>
+                </configuration>
             <plugin>
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>findbugs-maven-plugin</artifactId>
